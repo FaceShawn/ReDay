@@ -138,9 +138,6 @@ function deleteLabel(tagId){
             },
         });
     });
-
-    // 测试信息展示
-    $('#debug-info').append("<br> 取消删除"  );
 }
 
 /**

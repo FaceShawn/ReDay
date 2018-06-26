@@ -14,7 +14,7 @@
     define('PASSWORD_IS_ERROR', '密码错误，请重新输入密码');
    define('USER_IS_NOT_REGISTERED', '用户未注册，请先注册');
 	define('USER_IS_NOT_LOGIN', '用户未登录，请前往登录');
-	define('USER_IS_ALREADY_LOGIN', '用户已登录，请勿重复登录');
+	define('USER_IS_ALREADY_LOGIN', '用户已登录，请勿重复登录，注册请先注销当前用户');
 	define('LOGIN_SUCCESS', '登录成功');	// 登录成功
 	define('LOGOUT_SUCCESS', '注销成功，请重新登录');
 

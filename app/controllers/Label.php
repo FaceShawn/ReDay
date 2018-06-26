@@ -118,7 +118,9 @@ class Label extends Account
      */
     private function selectTagList() {
         // 获取标签源数据
-        $tagList = (new Tag())->selectAll();
+        $tagList = (new Tag())
+        ->where( ["owner_id = ?"], [ $this->getUserId() ])
+        ->selectAll();
         return  $tagList;
     }
 

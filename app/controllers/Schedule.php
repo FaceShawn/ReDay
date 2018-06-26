@@ -65,7 +65,7 @@ class Schedule extends Account
         $this->msg['tagList'] = $this->getTagList();
         // 判断标签列表是否为空
         if( empty($this->msg['tagList']) ) {
-            $this->echoJsonMsg(400, TAG_LIST_IS_NULL, '/label/add');
+            $this->echoJsonMsg(400, TAG_LIST_IS_NULL, '/label/index');
         }
 
         // 获取块信息
@@ -102,7 +102,7 @@ class Schedule extends Account
         if( !empty($_POST['tagId']) ) {
             $this->tagId = $_POST['tagId'];
         } else {
-            $this->echoJsonMsg(400, TAG_ID_IS_NULL, '/label/add');
+            $this->echoJsonMsg(400, TAG_ID_IS_NULL, '/label/index');
         }
 
         // 接收数据
