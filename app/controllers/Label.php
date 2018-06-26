@@ -11,14 +11,14 @@ class Label extends Account
     protected $tagColor;
     protected $msg = Array();
 
+
     /**
-     * 添加标签页
+     * 展示管理标签主页
      * @return [type] [description]
      */
-    public function add()
+    public function index()
     {
-        $this->assign('title','添加标签');
-        return $this->fetch('/label/add');
+        return $this->fetch('/label/index');
     }
 
     /**
