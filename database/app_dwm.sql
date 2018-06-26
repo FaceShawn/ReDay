@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-06-25 23:48:44
+Date: 2018-06-26 14:45:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `item` (
   `belong_date` date NOT NULL,
   `block_code` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1630 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1636 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of item
@@ -475,6 +475,12 @@ INSERT INTO `item` VALUES ('1626', '4', '77', '2018-06-25', 'block-3-2');
 INSERT INTO `item` VALUES ('1627', '4', '77', '2018-06-25', 'block-3-1');
 INSERT INTO `item` VALUES ('1628', '2', '77', '2018-06-25', 'block-0-4');
 INSERT INTO `item` VALUES ('1629', '2', '77', '2018-06-25', 'block-1-4');
+INSERT INTO `item` VALUES ('1630', '3', '77', '2018-06-26', 'block-0-2');
+INSERT INTO `item` VALUES ('1631', '3', '77', '2018-06-26', 'block-0-3');
+INSERT INTO `item` VALUES ('1632', '3', '77', '2018-06-26', 'block-0-4');
+INSERT INTO `item` VALUES ('1633', '5', '77', '2018-06-26', 'block-1-2');
+INSERT INTO `item` VALUES ('1634', '5', '77', '2018-06-26', 'block-1-3');
+INSERT INTO `item` VALUES ('1635', '5', '77', '2018-06-26', 'block-1-4');
 
 -- ----------------------------
 -- Table structure for `mood`
@@ -488,7 +494,7 @@ CREATE TABLE `mood` (
   `update_time` varchar(22) NOT NULL,
   `user_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mood
@@ -504,17 +510,15 @@ CREATE TABLE `tag` (
   `owner_id` int(11) NOT NULL,
   `tag_color` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tag
 -- ----------------------------
-INSERT INTO `tag` VALUES ('1', '数学', '77', '#54FF9F');
-INSERT INTO `tag` VALUES ('2', '英语', '77', '#FFF68F');
-INSERT INTO `tag` VALUES ('3', '政治', '77', '#FFFF00');
-INSERT INTO `tag` VALUES ('4', '数据结构', '77', '#00FF00');
-INSERT INTO `tag` VALUES ('5', '计组', '77', '#9400D3');
-INSERT INTO `tag` VALUES ('6', '打麻将', '77', '#FF4500');
+INSERT INTO `tag` VALUES ('9', '数学', '77', '#ed740c');
+INSERT INTO `tag` VALUES ('10', '英语', '77', '#3aed0c');
+INSERT INTO `tag` VALUES ('11', '政治', '77', '#ed0c1a');
+INSERT INTO `tag` VALUES ('12', '运动', '77', '#0c7eed');
 
 -- ----------------------------
 -- Table structure for `template`
