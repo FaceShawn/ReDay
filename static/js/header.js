@@ -85,43 +85,44 @@ function showTag(objList)
     $("#tag-button-table tr:not(:first)").html("");
     // 获取标签表格 DOM 对象
     var table = document.getElementById("tag-button-table");
+
+    // // 删除按钮
+    // var rowDelete = table.insertRow();
+    // var cellDelete = rowDelete.insertCell();
+    // cellDelete.innerHTML = '<button class="btn btn-block btn-danger label-btn" onclick="deleteItem(0)"> 删除 </button>';
+    // // cellDelete.innerHTML = '<button class="btn btn-block label-btn " id="deleteItem"> shanchu </button>';
+
     // 显示标签列表
     for(var i=0; i<objList.length; ++i)
     {
         // 标签对象
         var obj     = objList[i];
-        var tagId   = obj.id;
-        var tagName = obj.tag_name;
-        var ownerId = obj.owner_id;
-        var tagColor = obj.tag_color;
-
         // 在表格当前行（第一行）前插入一行
         var row = table.insertRow(-1);
         // 在此行当前列（第一列）前插入一列
         var cell = row.insertCell(-1);
+
         // 处理超过限定长度的字符串
         var limitLength = 2;
-        if( tagName.length > limitLength) {
-            tagName = tagName.substr(0, limitLength);
-             tagName = tagName + "..";
-            // tagName.length
-            $('#debug-info').append("<br> fronStr:" + tagName );
-
+        if( obj.tag_name.length > limitLength) {
+            obj.tag_name = obj.tag_name.substr(0, limitLength);
+            obj.tag_name = obj.tag_name + "..";
+            // obj.tag_name.length
+            $('#debug-info').append("<br> fronStr:" + obj.tag_name );
         }
 
         // 插入按钮
         cell.innerHTML = '<button class="btn btn-block label-btn "' +
-        ' onclick="sendItem(' + tagId +')"' +
+        ' onclick="sendItem(' + obj.id +')"' +
         // 设置文本为白色，按钮颜色
-        ' style="background-color:'+ tagColor +';"' +
-        '>' + tagName + '</button>';
+        ' style="background-color:'+ obj.tag_color +';"' +
+        '>' + obj.tag_name + '</button>';
     }
 }
 
 
 /**
  * 获取点击的事项块
- * 新添加事项需要点击两次才能选中
  */
 $(function(){
     $(".quarter-block").each(function(k,v){

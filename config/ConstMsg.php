@@ -14,7 +14,7 @@
     define('PASSWORD_IS_ERROR', '密码错误，请重新输入密码');
    define('USER_IS_NOT_REGISTERED', '用户未注册，请先注册');
 	define('USER_IS_NOT_LOGIN', '用户未登录，请前往登录');
-	define('USER_IS_ALREADY_LOGIN', '用户已登录，请勿重复登录');
+	define('USER_IS_ALREADY_LOGIN', '用户已登录，请勿重复登录，注册请先注销当前用户');
 	define('LOGIN_SUCCESS', '登录成功');	// 登录成功
 	define('LOGOUT_SUCCESS', '注销成功，请重新登录');
 
@@ -47,7 +47,7 @@
 	define('BELONG_DATE_IS_NULL', '请先选择日期 o(*￣︶￣*)o');
 	define('TAG_ID_IS_NULL', '请先选择标签 o(*￣︶￣*)o');
 	define('BLOCK_CODE_ARRAY_IS_NULL', '请先选择时间块 o(*￣︶￣*)o');
-	define('TAG_LIST_IS_NULL', '该用户尚未添加标签');
+	define('TAG_LIST_IS_NULL', '该用户尚未添加标签，前去添加标签？');
 	define('BLOCK_LIST_IS_NULL', '该用户尚未添加时间块');
 	define('GET_BLOCK_AND_TAG_SUCCESS', '获取标签和块信息成功');
 	define('ADD_ITEM_SUCCESS', '成功添加事项 (*^▽^*)');
