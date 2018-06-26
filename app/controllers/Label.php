@@ -57,7 +57,7 @@ class Label extends Account
     /**
      * 设置标签数据库表
      */
-    public function setTag() {
+    private function setTag() {
         // 组装标签
         $data=[
             'tag_name' => $this->tagName,
