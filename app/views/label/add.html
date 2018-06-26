@@ -1,0 +1,44 @@
+
+    <script src="/static/js/label.js?v=<%=timestamp()%"></script>
+
+    <!-- start: label panel -->
+    <div class="container body-container">
+
+        <!-- start: 添加标签面板 -->
+        <div class="container">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3 class="alert alert-warning"><center>添加标签</center></h3>
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <span  class="input-group-addon">标&nbsp;&nbsp;&nbsp;签&nbsp;&nbsp;&nbsp;名:</span>
+                    <input id="tagName" name="content" type="text" class="form-control" placeholder="标签名"/>
+                </div>
+                <div class="form-group input-group">
+                    <span  class="input-group-addon">标&nbsp;签&nbsp;颜&nbsp;色:</span>
+                    <select id="tagColor" class="form-control" >
+                        <option value="#ed0c1a" style="background-color: #ed0c1a" >红色</option>
+                        <option value="#ed740c" style="background-color: #ed740c">橙色</option>
+                        <option value="#edde0c" style="background-color: #edde0c">黄色</option>
+                        <option value="#3aed0c" style="background-color: #3aed0c">绿色</option>
+                        <option value="#0ced87" style="background-color: #0ced87">青色</option>
+                        <option value="#0c7eed" style="background-color: #0c7eed">蓝色</option>
+                        <option value="#b60ced" style="background-color: #b60ced">紫色</option>
+                        <option value="#fbb1d3" style="background-color: #fbb1d3">粉色</option>
+                        <option value="#b4acb0" style="background-color: #b4acb0">灰色</option>
+                        <option value="#161314" style="background-color: #161314">黑色</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <center>
+                        <input class="btn btn-default" type="button" value="添加标签" onclick="javascript:sendLabel();">
+                    </center>
+                </div>
+            </div>
+        </div>
+        <!-- end:   添加标签面板 -->
+
+    </div>
+    <!-- end:   label panel -->
