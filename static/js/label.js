@@ -20,7 +20,7 @@ function acceptLabelList(){
 
     $.ajax({
         type: "POST",
-        url: "/label/getLabelList",
+        url: "/label/acceptLabelList",
         data: data,  //提交到后台的数据
         dataType: "json",   //回调函数接收数据的数据格式
         success: function(msg){

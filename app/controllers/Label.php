@@ -32,7 +32,7 @@ class Label extends Account
      * @return $this->msg['url'] 跳转链接
      * @return $this->msg['labelList'] 事件列表
      */
-    public function getLabelList()
+    public function acceptLabelList()
     {
         // 验证用户是否已登录
         if( !$this->isLogin() ) {
