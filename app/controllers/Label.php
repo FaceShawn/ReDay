@@ -25,7 +25,6 @@ class Label extends Account
     /**
      * 获取事件统计信息
      *
-     * @param $_POST['belongDate'] 前端传来的所属日期
      * @param $this->getUserId() 当前用户编号
      *
      * @return $this->msg['status'] 状态码
@@ -33,7 +32,7 @@ class Label extends Account
      * @return $this->msg['url'] 跳转链接
      * @return $this->msg['labelList'] 事件列表
      */
-    public function acceptLabelList()
+    public function getLabelList()
     {
         // 验证用户是否已登录
         if( !$this->isLogin() ) {
@@ -41,19 +40,19 @@ class Label extends Account
         }
 
         // 获取事件信息
-        $this->msg['labelList'] = $this->getLabelList();
+        $this->msg['labelList'] = $this->selectTagList();
         // 判断事件列表是否为空
         if( empty($this->msg['labelList']) ) {
-            $this->echoJsonMsg(400, EVENT_LIST_IS_NULL, '#');
+            $this->echoJsonMsg(400, TAG_LIST_IS_NULL, '#');
         } else {
             // 成功获取事件列表
-            $this->echoJsonMsg(200, GET_EVENT_LIST_SUCCESS, '#');
+            $this->echoJsonMsg(200, '获取标签列表成功', '#');
         }
     }
 
 
     /**
-     * 添加标签
+     * 删除标签
      * @return [type] [description]
      */
     public function deleteLabel()
@@ -80,7 +79,52 @@ class Label extends Account
 
 
     /**
-     * 设置标签数据库表
+     * 添加标签
+     * @return [type] [description]
+     */
+    public function sendLabel()
+    {
+        // 验证用户是否已登录
+        if( !$this->isLogin() ) {
+            $this->echoJsonMsg(400, USER_IS_NOT_LOGIN, '/account/login');
+        }
+
+        // 接收数据
+        if( !empty($_POST['tagName']) ) {
+            $this->tagName = $_POST['tagName'];
+        } else {
+            $this->echoJsonMsg(400, "标签名为空", '#');
+        }
+
+        //接收数据
+         if( !empty($_POST['tagColor']) ) {
+            $this->tagColor = $_POST['tagColor'];
+        } else {
+            $this->echoJsonMsg(400, "标签颜色为空", '#');
+        }
+
+        // 设置事项
+        if( $this->insertTag() ) {
+            $this->echoJsonMsg(200, "添加标签成功", '/label/index');
+        } else {
+            $this->echoJsonMsg(400, "添加标签失败", '#');
+        }
+    }
+
+    /**
+     * 从数据库表中获取标签并组装
+     *
+     * @param $this->getUserId() 当前用户编号
+     */
+    private function selectTagList() {
+        // 获取标签源数据
+        $tagList = (new Tag())->selectAll();
+        return  $tagList;
+    }
+
+
+    /**
+     * 从数据库表中删除标签
      */
     private function deleteTag() {
         $count = (new Tag())->delete($this->tagId);
@@ -93,31 +137,11 @@ class Label extends Account
         }
     }
 
-    /**
-     * 组装事件
-     *
-     * @param $this->getUserId() 当前用户编号
-     * @param $this->startDate 开始日期
-     * @param $this->endData 结束日期
-     *
-     * @return $labelList 事件列表，包括：
-     * @return $labelList['tag_name'] 标签名
-     * @return $labelList['time_length'] 标签总计时长
-     * @return $labelList['date_length'] 时间跨度
-     * @return $labelList['time_length_per_day'] 每天标签时长
-     */
-    private function getLabelList() {
-        // 重新组装事件
-        // tag_id 和 时长（取决于记录数量）
-        $labelList = (new Tag())->selectAll();
-        return  $labelList;
-    }
-
 
     /**
-     * 设置标签数据库表
+     * 在数据库表中添加标签
      */
-    private function setTag() {
+    private function insertTag() {
         // 组装标签
         $data=[
             'tag_name' => $this->tagName,
@@ -135,7 +159,5 @@ class Label extends Account
             return true;
         }
     }
-
-
 
 }

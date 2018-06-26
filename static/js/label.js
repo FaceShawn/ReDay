@@ -20,7 +20,7 @@ function acceptLabelList(){
 
     $.ajax({
         type: "POST",
-        url: "/label/acceptLabelList",
+        url: "/label/getLabelList",
         data: data,  //提交到后台的数据
         dataType: "json",   //回调函数接收数据的数据格式
         success: function(msg){
@@ -47,7 +47,7 @@ function acceptLabelList(){
 
 
 /**
- * DOM 展示列表
+ * DOM 展示标签列表
  * @param  {[type]} objList [description]
  * @return {[type]}         [description]
  */
@@ -64,9 +64,12 @@ function showLabelList_DOM(objList)
 
     for(var i=0; i<objList.length; ++i)
     {
+        // 插入一行
         var row = table.insertRow(-1);
+        // 一条数据记录对象
         var obj = objList[i];
 
+        // 展示 obj 中所有数据
         // for(var key in obj){
         //     cell = row.insertCell(-1);
         //     cell.innerHTML=obj[key];
@@ -85,43 +88,59 @@ function showLabelList_DOM(objList)
         // 删除按钮
         row.insertCell(-1).innerHTML = '<button class="btn btn-danger btn-block label-btn "' +
         ' onclick="deleteLabel(' + obj.id +')" style="color:white; "> 删除 </button>';
+
+        // row.insertCell(-1).innerHTML = '<button class="btn btn-danger btn-block btn-delete-label style="color:white; "> 删除 </button>';
     }
 }
 
 
+/**
+ * 删除标签
+ * @param  {[type]} tagId [description]
+ * @return {[type]}       [description]
+ */
 function deleteLabel(tagId){
 
     var data = {};
     data.tagId = tagId;
 
+    // 模态框显示状态码、提示信息、跳转链接
+    showInfoModal( 600, '确认删除此标签？', '#');
+
     // 测试信息展示
     $('#debug-info').append("<br><br> deleteLabel(tagId)");
     $('#debug-info').append("<br> 发送数据 ：" + JSON.stringify(data) );
 
-    $.ajax({
-        type: "POST",
-        url:  "/label/deleteLabel",
-        data: data,  //提交到后台的数据
-        dataType: "json",   //回调函数接收数据的数据格式
-        success: function(msg){
+    // 监听模态框的确认按钮
+    $("#error-modal-url").click(function(){
+        $.ajax({
+            type: "POST",
+            url:  "/label/deleteLabel",
+            data: data,  //提交到后台的数据
+            dataType: "json",   //回调函数接收数据的数据格式
+            success: function(msg){
 
-            // 测试信息展示
-            $('#debug-info').append("<br> 返回数据 ：" + JSON.stringify(msg) );
+                // 测试信息展示
+                $('#debug-info').append("<br> 返回数据 ：" + JSON.stringify(msg) );
 
-            // 状态码
-            if(msg.status == 200){
-                // 删除成功,刷新当前页面
-                acceptLabelList();
-            }else{
+                // 状态码
+                if(msg.status == 200){
+                    // 删除成功,刷新当前页面
+                    acceptLabelList();
+                }else{
+                    // 模态框显示状态码、提示信息、跳转链接
+                    showInfoModal( msg.status, msg.info, msg.url);
+                }
+            },
+            error:  function(XMLHttpRequest, textStatus, errorThrown) {
                 // 模态框显示状态码、提示信息、跳转链接
-                showInfoModal( msg.status, msg.info, msg.url);
-            }
-        },
-        error:  function(XMLHttpRequest, textStatus, errorThrown) {
-            // 模态框显示状态码、提示信息、跳转链接
-            showInfoModal( '404', 'ajax 请求错误！', '#');
-        },
+                showInfoModal( '404', 'ajax 请求错误！', '#');
+            },
+        });
     });
+
+    // 测试信息展示
+    $('#debug-info').append("<br> 取消删除"  );
 }
 
 /**
