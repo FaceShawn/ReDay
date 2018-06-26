@@ -189,6 +189,34 @@ class Account extends Controller
         }
     }
 
+
+    /**
+     * 验证用户是否已登录
+     * @return boolean [description]
+     */
+    protected function isAdmin()
+    {
+        if($this->getUserGroup() == "admin"){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    /**
+     * 获取当前用户user_group
+     */
+    protected function getUserGroup()
+    {
+        if( $this->isLogin() ){
+            return $this->user['user_group'];
+        }else{
+            return false;
+        }
+    }
+
+
     /**
      * 返回 json 数据 并终止程序
      * @param $status 状态码
