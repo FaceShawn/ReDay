@@ -59,7 +59,7 @@ function showLabelList_DOM(objList)
 
     // 清空表格旧数据
     $("#label-manage-list tr:not(:first)").html("");
-    // 获取表格 id
+    // 根据id获取表格对象
     var table = document.getElementById("label-manage-list");
 
     for(var i=0; i<objList.length; ++i)
@@ -86,7 +86,7 @@ function showLabelList_DOM(objList)
         row.insertCell(-1).innerText = obj.tag_color ;
 
         // 删除按钮
-        row.insertCell(-1).innerHTML = '<button class="btn btn-danger btn-block label-btn "' +
+        row.insertCell(-1).innerHTML = '<button class="btn btn-danger btn-block  "' +
         ' onclick="deleteLabel(' + obj.id +')" style="color:white; "> 删除 </button>';
 
         // row.insertCell(-1).innerHTML = '<button class="btn btn-danger btn-block btn-delete-label style="color:white; "> 删除 </button>';
