@@ -67,7 +67,7 @@ class Statistics extends Account
         }
 
         // 获取事件信息
-        $this->msg['eventList'] = $this->makeEventList();
+        $this->msg['eventList'] = $this->getEventList();
         // 判断事件列表是否为空
         if( empty($this->msg['eventList']) ) {
             $this->echoJsonMsg(400, EVENT_LIST_IS_NULL, '#');
@@ -91,7 +91,7 @@ class Statistics extends Account
      * @return $eventList['date_length'] 时间跨度
      * @return $eventList['time_length_per_day'] 每天标签时长
      */
-    private function makeEventList() {
+    private function getEventList() {
         // 重新组装事件
         // tag_id 和 时长（取决于记录数量）
         $eventList = Array();
