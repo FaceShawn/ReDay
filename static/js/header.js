@@ -87,10 +87,12 @@ function showTag(objList)
     var table = document.getElementById("tag-button-table");
 
     // // 删除按钮
-    // var rowDelete = table.insertRow();
-    // var cellDelete = rowDelete.insertCell();
-    // cellDelete.innerHTML = '<button class="btn btn-block btn-danger label-btn" onclick="deleteItem(0)"> 删除 </button>';
+    // var rowDelete = table.insertRow(-1);
+    // var cellDelete = rowDelete.insertCell(-1);
+    // cellDelete.innerHTML = '<button class="btn btn-block btn-danger label-btn" onclick="deleteItem('+')"> 删除 </button>';
     // // cellDelete.innerHTML = '<button class="btn btn-block label-btn " id="deleteItem"> shanchu </button>';
+
+    $('#debug-info').append("<br> showTag() 删除按钮: ");
 
     // 显示标签列表
     for(var i=0; i<objList.length; ++i)
