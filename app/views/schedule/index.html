@@ -1,7 +1,5 @@
-    <!-- 引入自定义 css js-->
-    <link rel="stylesheet" href="/static/css/schedule.css?v=<%=timestamp()%>"  type="text/css">
-    <!-- 用时间戳动态加载 js 解决浏览器缓存 -->
-    <script src="/static/js/schedule.js?v=<%=timestamp()%>"></script>
+
+
 
     <div class="container container-fluid body-container">
 
@@ -10,20 +8,20 @@
             <div class="col-xs-12">
                 <div class="tabbable tabs-left">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="active">
+                        <li class="">
                             <a href="#schedule-pane" role="tab" data-toggle="tab">日程</a>
                         </li>
-                        <li class="">
-                            <a href="#reday-pane" role="tab" data-toggle="tab">标签列表1</a>
+                        <li class="active">
+                            <a href="#reday-pane" role="tab" data-toggle="tab">日清</a>
                         </li>
-                        <li class="">
+                        <!-- <li class="">
                             <a href="#tag-list-pane-2" role="tab" data-toggle="tab">标签列表2</a>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="tab-content ">
 
                         <!-- start: 日程面板 -->
-                        <div class="tab-pane active" id="schedule-pane">
+                        <div class="tab-pane " id="schedule-pane">
                             <div class="col-sm-8 col-sm-offset-2">
                                 <!-- start: 选择日期 -->
                                 <div class="row " style="margin: 15px auto;">
@@ -436,41 +434,45 @@
                         </div>
                         <!-- end:   日程面板 -->
 
-                        <!-- start: 标签列表面板1 -->
-                        <div class="tab-pane " id="reday-pane">
-                            <div class="container body-container">
+                        <!-- start: 日清面板 -->
+                        <div class="tab-pane active" id="reday-pane">
+                            <div class="container ">
 
                                 <!-- start: 心情墙面板 -->
-                                <div class="">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-xs-12 text-center">
-                                                <h3 class="alert alert-danger">心情墙</h3>
-                                            </div>
-                                        </div>
+                                <div class="col-sm-6 col-sm-offset-3">
 
-                                        <div class="form-group">
-                                            <textarea name="content" id="mood" rows="5" class="form-control"></textarea>
+                                    <!-- start: 标题 -->
+                                    <div class="row">
+                                        <div class="text-center">
+                                            <h3 class="alert alert-danger">日清</h3>
                                         </div>
-                                        <div class="form-group">
-                                            <input class="btn btn-primary" type="button" value="添加心情" onclick="javascript:sendMood();">
-                                        </div>
-
-                                        <!-- start：心情列表 -->
-                                        <div class="testDiv">
-                                            <div class="container">
-                                            </div>
-                                        </div>
-                                        <!-- end：   心情列表 -->
-
                                     </div>
-                                </div>
-                                <!-- end:   心情墙面板 -->
+                                    <!--  end:   标题 -->
 
+                                    <!-- start: 添加日清  -->
+                                    <div class="row">
+                                        <form class="form" action="" method="post">
+                                            <div class="form-group">
+                                                <textarea name="content" id="mood" rows="5" class="form-control"></textarea>
+                                            </div>
+                                            <div class="form-group text-right">
+                                                <input class="btn btn-primary" type="button" value="添加" onclick="javascript:sendMood();">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- end:   添加日清 -->
+
+                                    <!-- start：日清列表 -->
+                                    <div id="mood-list-pane">
+                                        <div class="container">
+                                        </div>
+                                    </div>
+                                    <!-- end：   日清列表 -->
+
+                                </div>
                             </div>
-                            <!-- end:   wall panel -->
                         </div>
-                        <!-- end:   标签列表面板1 -->
+                        <!-- end:   日清面板 -->
 
                         <!-- start: 标签列表面板2 -->
                         <div class="tab-pane " id="tag-list-pane-2">
