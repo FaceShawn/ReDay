@@ -16,7 +16,7 @@ class Admin extends Account
     {
         // 验证用户是否为管理员
         if( !$this->isAdmin() ) {
-            return $this->success("您没有管理权限", '/account/login');
+            return $this->success("您没有管理权限", '#');
         }
 
         $this->assign('title','用户管理');

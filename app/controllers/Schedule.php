@@ -129,6 +129,33 @@ class Schedule extends Account
 
 
     /**
+     * 删除事项
+     */
+    public function deleteItem()
+    {
+        // 验证用户是否已登录
+        if( !$this->isLogin() ) {
+            $this->echoJsonMsg(400, USER_IS_NOT_LOGIN, '/account/login');
+        }
+
+        // 接收数据
+        if( !empty($_POST['blockCodeArray']) ) {
+            $this->blockCodeArray = $_POST['blockCodeArray'];
+        } else {
+            $this->echoJsonMsg(400, BLOCK_CODE_ARRAY_IS_NULL, '#');
+        }
+
+        // 设置事项
+        if( $this->deleteItemList() ) {
+            $this->msg['itemDelete'] = $this->item;
+            $this->echoJsonMsg(200, "成功删除标签", '#');
+        } else {
+            $this->echoJsonMsg(400, "删除标签失败", '#');
+        }
+    }
+
+
+    /**
      * 获取标签列表
      *
      * @param $this->getUserId() 用户编号
@@ -212,4 +239,27 @@ class Schedule extends Account
         return true;
     }
 
+
+    /**
+     * 从数据库中删除事项
+     */
+    private function deleteItemList() {
+
+        for ($i=0; $i < count($this->blockCodeArray); $i++) {
+            $blockCode = $this->blockCodeArray[$i];
+            // 插入失败
+            $this->item = (new Item())
+            ->where(["owner_id = ? and belong_date = ? and block_code = ?"], [$this->getUserId(), $this->belongDate], $$blockCode)
+            // ->order(['id DESC'])
+            ->select();
+
+            $count = (new Item())->delete($this->item['id']);
+
+            // 写入标签
+            if( $count == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -13,12 +13,12 @@
                         <li class="active">
                             <a href="#schedule-pane" role="tab" data-toggle="tab">日程</a>
                         </li>
-                        <!-- <li class="">
-                            <a href="#tag-list-pane-1" role="tab" data-toggle="tab">标签列表1</a>
+                        <li class="">
+                            <a href="#reday-pane" role="tab" data-toggle="tab">标签列表1</a>
                         </li>
                         <li class="">
                             <a href="#tag-list-pane-2" role="tab" data-toggle="tab">标签列表2</a>
-                        </li> -->
+                        </li>
                     </ul>
                     <div class="tab-content ">
 
@@ -437,29 +437,38 @@
                         <!-- end:   日程面板 -->
 
                         <!-- start: 标签列表面板1 -->
-                        <div class="tab-pane " id="tag-list-pane-1">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="alert alert-danger">DOM 加载表格展示</div>
+                        <div class="tab-pane " id="reday-pane">
+                            <div class="container body-container">
+
+                                <!-- start: 心情墙面板 -->
+                                <div class="">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12 text-center">
+                                                <h3 class="alert alert-danger">心情墙</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <textarea name="content" id="mood" rows="5" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="btn btn-primary" type="button" value="添加心情" onclick="javascript:sendMood();">
+                                        </div>
+
+                                        <!-- start：心情列表 -->
+                                        <div class="testDiv">
+                                            <div class="container">
+                                            </div>
+                                        </div>
+                                        <!-- end：   心情列表 -->
+
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <table class="table table-striped table-condensed" id="tag-list-table-1">
-                                            <thead>
-                                                <tr>
-                                                    <td>id</td>
-                                                    <td>tag_name</td>
-                                                    <td>owner_id</td>
-                                                    <td>color</td>
-                                                    <td>管理</td>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>
+                                <!-- end:   心情墙面板 -->
+
                             </div>
+                            <!-- end:   wall panel -->
                         </div>
                         <!-- end:   标签列表面板1 -->
 
