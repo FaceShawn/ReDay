@@ -124,6 +124,35 @@ class Batchadd extends Account
 
 
     /**
+     * 删除模板的事项
+     */
+    public function deleteItem()
+    {
+        // 验证用户是否已登录
+        if( !$this->isLogin() ) {
+            $this->echoJsonMsg(400, USER_IS_NOT_LOGIN, '/account/login');
+        }
+
+        // 接收数据
+        if( !empty($_POST['blockCodeArray']) ) {
+            $this->blockCodeArray = $_POST['blockCodeArray'];
+        } else {
+            $this->echoJsonMsg(400, BLOCK_CODE_ARRAY_IS_NULL, '#');
+        }
+
+        // 设置事项
+        if( $this->deleteTemplateList() ) {
+            // 返回删除的标签
+            // $this->msg['itemDelete'] = $this->item;
+            $this->echoJsonMsg(200, "成功删除标签", '#');
+        } else {
+            $this->echoJsonMsg(400, "此标签尚未填充", '#');
+        }
+    }
+
+
+
+    /**
      * 应用模板
      * @param $_POST['startDate'] 开始日期
      * @param $_POST['endTime'] 结束日期
@@ -233,8 +262,47 @@ class Batchadd extends Account
         $template = new Template();
         for ($i=0; $i < count($this->blockCodeArray); $i++) {
             $data['block_code'] = $this->blockCodeArray[$i];
+
+            // 判断数据库是否已有
+            $this->template = (new Template())
+            ->where(["owner_id = ? and block_code = ?"], [$this->getUserId(), $data['block_code']] )
+            ->select();
+
+            // 若已有则删掉
+            if( !empty($this->template) ) {
+                $count = (new Template())->delete($this->template['id']);
+
+                // 写入标签
+                if( $count == 0) {
+                    return false;
+                }
+            }
+
             // 插入失败
             if( $template->insert($data) == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    /**
+     * 从数据库中删除事项
+     */
+    private function deleteTemplateList() {
+
+        for ($i=0; $i < count($this->blockCodeArray); $i++) {
+            $blockCode = $this->blockCodeArray[$i];
+
+            $this->template = (new Template())
+            ->where(["owner_id =  ? and block_code = ?"], [$this->getUserId(), $blockCode] )
+            ->select();
+
+            $count = (new Template())->delete($this->template['id']);
+
+            // 写入标签
+            if( $count == 0) {
                 return false;
             }
         }

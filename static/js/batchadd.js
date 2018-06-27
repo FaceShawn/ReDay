@@ -132,6 +132,57 @@ function sendItem(tagId){
 
 
 /**
+ * 删除模板的事项
+ * @param  {[type]} tagId [description]
+ * @return {[type]}       [description]
+ */
+function deleteItem(){
+
+    // 模态框显示状态码、提示信息、跳转链接
+    showInfoModal( 600, '确认删除此标签？', '#');
+
+    // 监听模态框的确认按钮
+    $("#error-modal-url").click(function(){
+
+        var data = {};
+        // 选中块的坐标数组
+        data.blockCodeArray = blockCodeArray;
+        //清空点击事项的坐标全局数组
+        blockCodeArray = [];
+
+        // 测试信息展示
+        $('#debug-info').append("<br><br> deleteItem()");
+        $('#debug-info').append("<br> 发送数据 ：" + JSON.stringify(data) );
+
+        $.ajax({
+            type: "POST",
+            url:  "/batchadd/deleteItem",
+            data: data,  //提交到后台的数据
+            dataType: "json",   //回调函数接收数据的数据格式
+            success: function(msg){
+
+                // 测试信息展示
+                $('#debug-info').append("<br> 返回数据 ：" + JSON.stringify(msg) );
+
+                // 状态码
+                if(msg.status == 200){
+                    // 删除成功,刷新当前页面
+                    acceptBlockAndTag();
+                }else{
+                    // 模态框显示状态码、提示信息、跳转链接
+                    showInfoModal( msg.status, msg.info, msg.url);
+                }
+            },
+            error:  function(XMLHttpRequest, textStatus, errorThrown) {
+                // 模态框显示状态码、提示信息、跳转链接
+                showInfoModal( '404', 'ajax 请求错误！', '#');
+            },
+        });
+    });
+}
+
+
+/**
  * 应用模板
  */
 function applyTemplate() {

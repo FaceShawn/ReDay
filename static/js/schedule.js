@@ -112,7 +112,7 @@ function sendItem(tagId){
 
 
 /**
- * 删除标签
+ * 删除事项
  * @param  {[type]} tagId [description]
  * @return {[type]}       [description]
  */
@@ -130,7 +130,7 @@ function deleteItem(){
         // 选中块的坐标数组
         data.blockCodeArray = blockCodeArray;
         //清空点击事项的坐标全局数组
-        // blockCodeArray = [];
+        blockCodeArray = [];
 
         // 测试信息展示
         $('#debug-info').append("<br><br> deleteItem()");
