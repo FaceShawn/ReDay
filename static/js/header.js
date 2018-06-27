@@ -2,8 +2,18 @@
  * 自动加载
  */
 window.onload = function(){
+    // 初始化日期
+    initBelongDate2();
 
+    // 初始化块和标签数据
+    acceptBlockAndTag();
 
+    // 查询块列表
+    $("#selectDate").click(function () {
+        acceptBlockAndTag();
+    });
+
+    acceptMoodList();
 };
 
 /**
@@ -23,8 +33,12 @@ function showInfoModal(status, info, url){
 
         // 跳转到指定链接
         $('#error-modal-url').click(function() {
-            // 跳转到指定页面
-            window.location.href = url;
+            if( url == "#") {
+                // 刷新本页
+            } else {
+                // 跳转到指定页面
+                window.location.href = url;
+            }
         });
         // $('#error-modal-url').attr('href', url);
     });

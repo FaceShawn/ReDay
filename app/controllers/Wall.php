@@ -35,14 +35,14 @@ class Wall extends Account
         if( !empty($_POST['mood']) ) {
             $this->mood = $_POST['mood'];
         } else {
-            $this->echoJsonMsg(400, "心情为空", '/wall/index');
+            $this->echoJsonMsg(400, "心情为空", '#');
         }
 
         // 设置事项
         if( $this->setMood() ) {
-            $this->echoJsonMsg(200, "添加心情成功", '/wall/index');
+            $this->echoJsonMsg(200, "添加心情成功", '#');
         } else {
-            $this->echoJsonMsg(400, "添加心情失败", '/wall/index');
+            $this->echoJsonMsg(400, "添加心情失败", '#');
         }
     }
 
@@ -58,7 +58,7 @@ class Wall extends Account
             'content' => $this->mood,
             'create_time' => time(),
             'update_time' => time(),
-            'user_name' => $_SESSION['user']['user_name']  //获取用户ID，user继承自Account
+            'user_id' => $this->getUserId()  //获取用户ID，user继承自Account
         ];
 
         // $date_time=date('Y-m-d h:i:s', time());//日期转时间戳
@@ -95,7 +95,8 @@ class Wall extends Account
     private function getMoodList()
     {
         // 读取心情墙
-        $moodList = (new Mood())->where()->order(['id DESC'])->selectAll();
+        $moodList = (new Mood())->where(["user_id = ?"], [$this->getUserId()])
+        ->order(['id DESC'])->selectAll();
         return $moodList;
     }
 }

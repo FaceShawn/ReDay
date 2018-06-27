@@ -7,6 +7,7 @@ function sendMood(){
     data.mood = $("#mood").val();    //正在输入的心情mood
 
     // 测试信息展示
+    $('#debug-info').append("<br><br> sendMood()：" + JSON.stringify(data) );
     $('#debug-info').append("<br> 发送数据：" + JSON.stringify(data) );
 
     $.ajax({
@@ -24,7 +25,9 @@ function sendMood(){
             // 状态码，获取块数据成功
             if(msg.status == 200) {
                 // 添加成功模态框
-                showInfoModal( msg.status, msg.info, msg.url);
+                // showInfoModal( msg.status, msg.info, msg.url);
+                // acceptMoodList();
+                window.location.reload();
             } else {
                 // 模态框显示状态码和提示信息
                 showInfoModal( msg.status, msg.info, msg.url);
@@ -46,21 +49,26 @@ function sendMood(){
 
 //生成数据html,append到div中
 function showMoodList(moodList) {
-    var $testDiv = $(".testDiv");    //选中整个外层div
+    var $testDiv = $("#mood-list-pane");    //选中整个外层div
     var html = '';
+
+    // 测试信息展示
+    $('#debug-info').append("<br> 返回数据：" + JSON.stringify(moodList) );
+
     for (var i = 0; i < moodList.length; i++) {
         // 时间戳转日期显示
         var createTime =new Date(parseInt(moodList[i].create_time) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
         var updateTime =new Date(parseInt(moodList[i].update_time) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
         html += '<div class="alert alert-warning">';
-            html += '<div class="row list_emotion" >';
+            html += '<div class="row  ">';
+                html += '<div class="col-xs-12 ">' + moodList[i].content + '</div>';
+            html += '</div>';
+            html += '<div class="row text-right" >';
                 // html += ' <div class="col-xs-3 list_date">' + createTime + '</div>';
-                html += ' <div class="col-xs-4 col-sm-1 list_user_id">' + moodList[i].user_name + '</div>';
-                html += '<div class="col-xs-8 col-sm-4 list_date">'+ updateTime + '</div>';
+                // html += ' <div class="col-xs-4 col-sm-1 list_user_id">' + moodList[i].user_name + '</div>';
+                html += '<div class="col-xs-12 ">'+ updateTime + '</div>';
             html += '</div>';
-            html += '<div class="row list_emotion ">';
-                html += '<div class="col-xs-12 list_content">' + moodList[i].content + '</div>';
-            html += '</div>';
+
         html += '</div>';
     }
     $testDiv.append(html);
@@ -105,15 +113,3 @@ function acceptMoodList(){
         },
     });
 }
-
-
-
-/**
- * 自动加载
- * @return {[type]} [description]
- */
-window.onload = function(){
-
-    acceptMoodList();
-
-};

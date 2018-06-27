@@ -3,34 +3,12 @@ var blockCodeArray = [];
 // 返回的块信息列表
 var returnBlockList;
 
-/**
- * 自动加载
- */
-window.onload = function(){
-
-    // 初始化日期
-    initBelongDate();
-
-    // 初始化块和标签数据
-    acceptBlockAndTag();
-
-    // 查询块列表
-    $("#selectDate").click(function () {
-        acceptBlockAndTag();
-    });
-
-    // 查询块列表
-    // $("#deleteItem").click(function () {
-    //     deleteItem();
-    // });
-};
-
 
 /**
  * 初始化日期
  * @return {[type]} [description]
  */
-function initBelongDate() {
+function initBelongDate2() {
     // 为日期设置默认值
     Date.prototype.toDateInputValue = (function() {
         var local = new Date(this);

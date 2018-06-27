@@ -1,7 +1,5 @@
-    <!-- 引入自定义 css js-->
-    <link rel="stylesheet" href="/static/css/schedule.css?v=<%=timestamp()%>"  type="text/css">
-    <!-- 用时间戳动态加载 js 解决浏览器缓存 -->
-    <script src="/static/js/schedule.js?v=<%=timestamp()%>"></script>
+
+
 
     <div class="container container-fluid body-container">
 
@@ -10,10 +8,10 @@
             <div class="col-xs-12">
                 <div class="tabbable tabs-left">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="active">
+                        <li class="">
                             <a href="#schedule-pane" role="tab" data-toggle="tab">日程</a>
                         </li>
-                        <li class="">
+                        <li class="active">
                             <a href="#reday-pane" role="tab" data-toggle="tab">日清</a>
                         </li>
                         <!-- <li class="">
@@ -23,7 +21,7 @@
                     <div class="tab-content ">
 
                         <!-- start: 日程面板 -->
-                        <div class="tab-pane active" id="schedule-pane">
+                        <div class="tab-pane " id="schedule-pane">
                             <div class="col-sm-8 col-sm-offset-2">
                                 <!-- start: 选择日期 -->
                                 <div class="row " style="margin: 15px auto;">
@@ -437,7 +435,7 @@
                         <!-- end:   日程面板 -->
 
                         <!-- start: 日清面板 -->
-                        <div class="tab-pane " id="reday-pane">
+                        <div class="tab-pane active" id="reday-pane">
                             <div class="container ">
 
                                 <!-- start: 心情墙面板 -->
@@ -465,7 +463,7 @@
                                     <!-- end:   添加日清 -->
 
                                     <!-- start：日清列表 -->
-                                    <div class="testDiv">
+                                    <div id="mood-list-pane">
                                         <div class="container">
                                         </div>
                                     </div>
