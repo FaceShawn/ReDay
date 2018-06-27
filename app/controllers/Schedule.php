@@ -139,6 +139,13 @@ class Schedule extends Account
         }
 
         // 接收数据
+        if( !empty($_POST['belongDate']) ) {
+            $this->belongDate = $_POST['belongDate'];
+        } else {
+            $this->echoJsonMsg(400, BELONG_DATE_IS_NULL, '#');
+        }
+
+        // 接收数据
         if( !empty($_POST['blockCodeArray']) ) {
             $this->blockCodeArray = $_POST['blockCodeArray'];
         } else {
@@ -147,11 +154,35 @@ class Schedule extends Account
 
         // 设置事项
         if( $this->deleteItemList() ) {
-            $this->msg['itemDelete'] = $this->item;
+            // 返回删除的标签
+            // $this->msg['itemDelete'] = $this->item;
             $this->echoJsonMsg(200, "成功删除标签", '#');
         } else {
             $this->echoJsonMsg(400, "删除标签失败", '#');
         }
+    }
+
+
+    /**
+     * 从数据库中删除事项
+     */
+    private function deleteItemList() {
+
+        for ($i=0; $i < count($this->blockCodeArray); $i++) {
+            $blockCode = $this->blockCodeArray[$i];
+
+            $this->item = (new Item())
+            ->where(["owner_id = ? and belong_date = ? and block_code = ?"], [$this->getUserId(), $this->belongDate, $blockCode] )
+            ->select();
+
+            $count = (new Item())->delete($this->item['id']);
+
+            // 写入标签
+            if( $count == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -240,26 +271,5 @@ class Schedule extends Account
     }
 
 
-    /**
-     * 从数据库中删除事项
-     */
-    private function deleteItemList() {
 
-        for ($i=0; $i < count($this->blockCodeArray); $i++) {
-            $blockCode = $this->blockCodeArray[$i];
-            // 插入失败
-            $this->item = (new Item())
-            ->where(["owner_id = ? and belong_date = ? and block_code = ?"], [$this->getUserId(), $this->belongDate], $$blockCode)
-            // ->order(['id DESC'])
-            ->select();
-
-            $count = (new Item())->delete($this->item['id']);
-
-            // 写入标签
-            if( $count == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
 }

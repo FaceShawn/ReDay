@@ -92,7 +92,7 @@ function sendItem(tagId){
         success: function(msg){
 
             // 测试信息展示
-            $('#debug-info').append("<br> 返回数据 ：" + JSON.stringify(msg) );
+            $('#debug-info').append("<br><br> 返回数据 ：" + JSON.stringify(msg) );
 
             // 状态码
             if(msg.status == 200){
@@ -125,6 +125,8 @@ function deleteItem(){
     $("#error-modal-url").click(function(){
 
         var data = {};
+        // 获取输入日期，默认当前日期
+        data.belongDate = $("#belongDate").val();
         // 选中块的坐标数组
         data.blockCodeArray = blockCodeArray;
         //清空点击事项的坐标全局数组
@@ -147,7 +149,7 @@ function deleteItem(){
                 // 状态码
                 if(msg.status == 200){
                     // 删除成功,刷新当前页面
-                    acceptLabelList();
+                    acceptBlockAndTag();
                 }else{
                     // 模态框显示状态码、提示信息、跳转链接
                     showInfoModal( msg.status, msg.info, msg.url);

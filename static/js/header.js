@@ -100,11 +100,11 @@ function showTag(objList)
     // 获取标签表格 DOM 对象
     var table = document.getElementById("tag-button-table");
 
-    // // 删除按钮
-    // var rowDelete = table.insertRow(-1);
-    // var cellDelete = rowDelete.insertCell(-1);
-    // cellDelete.innerHTML = '<button class="btn btn-block btn-danger label-btn" onclick="deleteItem('+')"> 删除 </button>';
-    // // cellDelete.innerHTML = '<button class="btn btn-block label-btn " id="deleteItem"> shanchu </button>';
+    // 删除按钮
+    var rowDelete = table.insertRow(-1);
+    var cellDelete = rowDelete.insertCell(-1);
+    cellDelete.innerHTML = '<button class="btn btn-block btn-danger " onclick="deleteItem('+')"> 删除 </button>';
+    // cellDelete.innerHTML = '<button class="btn btn-block label-btn " id="deleteItem"> shanchu </button>';
 
     $('#debug-info').append("<br> showTag() 删除按钮: ");
 
