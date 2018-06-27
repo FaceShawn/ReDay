@@ -158,31 +158,8 @@ class Schedule extends Account
             // $this->msg['itemDelete'] = $this->item;
             $this->echoJsonMsg(200, "成功删除标签", '#');
         } else {
-            $this->echoJsonMsg(400, "删除标签失败", '#');
+            $this->echoJsonMsg(400, "此标签尚未填充", '#');
         }
-    }
-
-
-    /**
-     * 从数据库中删除事项
-     */
-    private function deleteItemList() {
-
-        for ($i=0; $i < count($this->blockCodeArray); $i++) {
-            $blockCode = $this->blockCodeArray[$i];
-
-            $this->item = (new Item())
-            ->where(["owner_id = ? and belong_date = ? and block_code = ?"], [$this->getUserId(), $this->belongDate, $blockCode] )
-            ->select();
-
-            $count = (new Item())->delete($this->item['id']);
-
-            // 写入标签
-            if( $count == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 
 
@@ -252,6 +229,7 @@ class Schedule extends Account
      * @return boolean 插入是否成功
      */
     private function setItemList() {
+
         // 组装事项
         $data =['tag_id' => $this->tagId,
                 'owner_id' => $this->getUserId(),
@@ -262,6 +240,22 @@ class Schedule extends Account
         $item = new Item();
         for ($i=0; $i < count($this->blockCodeArray); $i++) {
             $data['block_code'] = $this->blockCodeArray[$i];
+
+            // 判断数据库是否已有
+            $this->item = (new Item())
+            ->where(["owner_id = ? and belong_date = ? and block_code = ?"], [$this->getUserId(), $this->belongDate, $data['block_code']] )
+            ->select();
+
+            // 若已有则删掉
+            if( !empty($this->item) ) {
+                $count = (new Item())->delete($this->item['id']);
+
+                // 写入标签
+                if( $count == 0) {
+                    return false;
+                }
+            }
+
             // 插入失败
             if( $item->insert($data) == 0) {
                 return false;
@@ -270,6 +264,28 @@ class Schedule extends Account
         return true;
     }
 
+
+    /**
+     * 从数据库中删除事项
+     */
+    private function deleteItemList() {
+
+        for ($i=0; $i < count($this->blockCodeArray); $i++) {
+            $blockCode = $this->blockCodeArray[$i];
+
+            $this->item = (new Item())
+            ->where(["owner_id = ? and belong_date = ? and block_code = ?"], [$this->getUserId(), $this->belongDate, $blockCode] )
+            ->select();
+
+            $count = (new Item())->delete($this->item['id']);
+
+            // 写入标签
+            if( $count == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 }
