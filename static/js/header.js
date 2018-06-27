@@ -118,20 +118,20 @@ function showTag(objList)
         // 在此行当前列（第一列）前插入一列
         var cell = row.insertCell(-1);
 
-        // 处理超过限定长度的字符串
-        var limitLength = 2;
-        if( obj.tag_name.length > limitLength) {
-            obj.tag_name = obj.tag_name.substr(0, limitLength);
-            obj.tag_name = obj.tag_name + "..";
-            // obj.tag_name.length
-            $('#debug-info').append("<br> fronStr:" + obj.tag_name );
-        }
+        // // 处理超过限定长度的字符串
+        // var limitLength = 2;
+        // if( obj.tag_name.length > limitLength) {
+        //     obj.tag_name = obj.tag_name.substr(0, limitLength);
+        //     obj.tag_name = obj.tag_name + "..";
+        //     // obj.tag_name.length
+        //     $('#debug-info').append("<br> fronStr:" + obj.tag_name );
+        // }
 
         // 插入按钮
-        cell.innerHTML = '<button class="btn btn-block label-btn "' +
+        cell.innerHTML = '<button class="btn btn-block "' +
         ' onclick="sendItem(' + obj.id +')"' +
         // 设置文本为白色，按钮颜色
-        ' style="background-color:'+ obj.tag_color +';"' +
+        ' style="color:white; background-color:'+ obj.tag_color +';"' +
         '>' + obj.tag_name + '</button>';
     }
 }

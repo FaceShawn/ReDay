@@ -79,7 +79,7 @@ function showLabelList_DOM(objList)
         row.insertCell(-1).innerText = obj.id ;
 
         // 标签按钮
-        row.insertCell(-1).innerHTML = '<button disabled class="btn btn-block label-btn "' +
+        row.insertCell(-1).innerHTML = '<button disabled class="btn btn-block "' +
         ' style="color:white; background-color:'+ obj.tag_color +';">' + obj.tag_name + '</button>';
 
         // 标签颜色
