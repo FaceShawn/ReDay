@@ -5,6 +5,7 @@
 
 ---
 
+## 项目地址: https://github.com/FaceShawn/ReDay
 ## 1. 搭建 wamp 开发环境
 ### 1  下载 [wampserver_X86_2.5.1455519048](http://www.wampserver.com/)
 > `wampserver3.1.0_x64` 在windows7 64 下报错 `The setup files are corrupted Please obtain a new copy of the program`(安装文件已损坏，请获取程序的新副本)
