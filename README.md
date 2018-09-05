@@ -193,10 +193,15 @@ git push --force
 ##### 7. [为input的date类型设置默认值](http://ghmagical.com/article/page/id/unacjkHzT3W0)
 ##### 8. [JS 操作 JSON](https://www.cnblogs.com/worfdream/articles/1956449.html)
 ##### [JSON.parse() 和 JSON.stringify() 的区别 ](https://www.jianshu.com/p/eb449b29a2bd)
-##### [模态框被灰色阴影遮罩挡住](https://blog.csdn.net/oschina_41012066/article/details/78982969)
-##### [document.getElementById() 与 $() 区别](https://www.cnblogs.com/hujunzheng/p/4907482.html)
 
-##### [模态框modal的高度和宽度设置](https://blog.csdn.net/u014326004/article/details/69789187)
+[document.getElementById() 与 $() 区别](https://www.cnblogs.com/hujunzheng/p/4907482.html)
+
+##### 模态框
+
+- [模态框被灰色阴影遮罩挡住](https://blog.csdn.net/oschina_41012066/article/details/78982969)
+
+- ##### [模态框modal的高度和宽度设置](https://blog.csdn.net/u014326004/article/details/69789187)
+
 ##### 用时间戳动态加载 js 解决浏览器缓存，即 js 文件修改后浏览器不能及时更新的问题
     <script         src="/static/js/schedule.js?v=<%=timestamp()%>"></script>
 
