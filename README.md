@@ -155,19 +155,29 @@ git push --force
 
 ---
 
-## 6. 入坑 Atom 编辑器
-### [Atom 备份神器 —— Sync Settings 教程](https://www.cnblogs.com/hooray/p/5885211.html)
+### 6. 入坑 Atom 编辑器
+##### 1. Sync 配置备份
+
+- [Atom 配置备份神器 Sync Settings 教程](https://www.cnblogs.com/hooray/p/5885211.html)
+
     Personal access tokens : b22a2d7d325e069b004f7ae262dd80c10129990a
     Gist Id : 4bed82817c679576258683eb7d70cb6a
     Gist 库[已被墙]: https://gist.github.com/FaceShawn/4bed82817c679576258683eb7d70cb6a
-### [自建 shadowsocks 服务器教程](https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAss%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B)，建立 gist 仓库存储 sync 备份的 .atom 配置文件
-### [通过PayPal取消Vultr预核准付款防止自动扣费M](https://www.wn789.com/5496.html)
-### [markdown-preview-enhanced 文档](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)
-### [atom 中使用自定义 JSHint](https://blog.csdn.net/u010620152/article/details/71404192)
+- [自建 shadowsocks 服务器教程](https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAss%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B)，建立 gist 仓库存储 sync 备份的 .atom 配置文件
+
+- [通过PayPal取消Vultr预核准付款防止自动扣费M](https://www.wn789.com/5496.html)
+
+##### 2. MarkDown 插件
+
+- [markdown-preview-enhanced 文档](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)
+
+##### 3. JSHint 插件
+
+- [atom 中使用自定义 JSHint](https://blog.csdn.net/u010620152/article/details/71404192)
 
 ---
 
-## 7. HTML & JQuery
+### 7. HTML & JQuery
 ### 1. html 引用公共的头部和尾部
 #### 1. [通过 jQuery 中的函数 load() ](https://blog.csdn.net/qq_35393869/article/details/79803190)
 
