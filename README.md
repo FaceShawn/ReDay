@@ -178,41 +178,45 @@ git push --force
 ---
 
 ### 7. HTML & JQuery
-### 1. html 引用公共的头部和尾部
-#### 1. [通过 jQuery 中的函数 load() ](https://blog.csdn.net/qq_35393869/article/details/79803190)
+##### 1. html 引用公共的头部和尾部
+1.  [通过 jQuery 中的函数 load() ](https://blog.csdn.net/qq_35393869/article/details/79803190)
 
-#### 2. [通过 iframe 框架标签](https://www.jianshu.com/p/140c71ccd7a6)
+2.  [通过 iframe 框架标签](https://www.jianshu.com/p/140c71ccd7a6)
+
 > Scrolling: 是否有滚动条，yes有，no无，auto 根据被显示html自动显示或隐藏
 
-### 2. [DOM 对象中 innerHTML，innerText，outerHTML，textContent的用法与区别](https://segmentfault.com/a/1190000000410375)
-### 3. [bootstrap 加载表格 & 单击获取当前行号](https://blog.csdn.net/framic/article/details/70254705)
-### 4. [Bootstrap Table 使用文档](https://www.jianshu.com/p/53505ec42fa3)
-### 5. [js 简单的实现点击选中点击取消的效果](https://www.jianshu.com/p/ab8f9de0739a)
-### 6. [$.inArry() 根据值删除数组元素](https://blog.csdn.net/m0_37290635/article/details/56487205)
-### 7. [为input的date类型设置默认值](http://ghmagical.com/article/page/id/unacjkHzT3W0)
-### 8. [JS 操作 JSON](https://www.cnblogs.com/worfdream/articles/1956449.html)
-### [JSON.parse() 和 JSON.stringify() 的区别 ](https://www.jianshu.com/p/eb449b29a2bd)
-### [模态框被灰色阴影遮罩挡住](https://blog.csdn.net/oschina_41012066/article/details/78982969)
-### [document.getElementById() 与 $() 区别](https://www.cnblogs.com/hujunzheng/p/4907482.html)
-### [模态框modal的高度和宽度设置](https://blog.csdn.net/u014326004/article/details/69789187)
-### 用时间戳动态加载 js 解决浏览器缓存，即 js 文件修改后浏览器不能及时更新的问题
+##### 2. [DOM 对象中 innerHTML，innerText，outerHTML，textContent的用法与区别](https://segmentfault.com/a/1190000000410375)
+##### 3. [bootstrap 加载表格 & 单击获取当前行号](https://blog.csdn.net/framic/article/details/70254705)
+##### 4. [Bootstrap Table 使用文档](https://www.jianshu.com/p/53505ec42fa3)
+##### 5. [js 简单的实现点击选中点击取消的效果](https://www.jianshu.com/p/ab8f9de0739a)
+##### 6. [$.inArry() 根据值删除数组元素](https://blog.csdn.net/m0_37290635/article/details/56487205)
+##### 7. [为input的date类型设置默认值](http://ghmagical.com/article/page/id/unacjkHzT3W0)
+##### 8. [JS 操作 JSON](https://www.cnblogs.com/worfdream/articles/1956449.html)
+##### [JSON.parse() 和 JSON.stringify() 的区别 ](https://www.jianshu.com/p/eb449b29a2bd)
+##### [模态框被灰色阴影遮罩挡住](https://blog.csdn.net/oschina_41012066/article/details/78982969)
+##### [document.getElementById() 与 $() 区别](https://www.cnblogs.com/hujunzheng/p/4907482.html)
+
+##### [模态框modal的高度和宽度设置](https://blog.csdn.net/u014326004/article/details/69789187)
+##### 用时间戳动态加载 js 解决浏览器缓存，即 js 文件修改后浏览器不能及时更新的问题
     <script         src="/static/js/schedule.js?v=<%=timestamp()%>"></script>
 
-#### 1. [js 文件修改后浏览器不能及时更新](https://my.oschina.net/guopengfei/blog/411306?p=2)
-#### 2. [解决 js 缓存动态更新](https://segmentfault.com/a/1190000007404333)
-#### 3. [web 页面布局结构](https://images0.cnblogs.com/i/17148/201406/061638243337718.png)
+1. [js 文件修改后浏览器不能及时更新](https://my.oschina.net/guopengfei/blog/411306?p=2)
+
+2. [解决 js 缓存动态更新](https://segmentfault.com/a/1190000007404333)
+
+3. [web 页面布局结构](https://images0.cnblogs.com/i/17148/201406/061638243337718.png)
 
 ---
 
-##  8. MVC 框架
-### 1. [ORM 对象关系映射](https://www.pureweber.com/article/orm/)
-### 2. [pdo 数据库访问抽象层使用](https://www.kancloud.cn/curder/mysql/354884)
-### 3. [pdo 数据库访问抽象层详解](https://blog.csdn.net/nailwl/article/details/4733655)
+###  8. MVC 框架
+##### 1. [ORM 对象关系映射](https://www.pureweber.com/article/orm/)
+##### 2. [pdo 数据库访问抽象层使用](https://www.kancloud.cn/curder/mysql/354884)
+##### 3. [pdo 数据库访问抽象层详解](https://blog.csdn.net/nailwl/article/details/4733655)
 
 ---
 
-## 9. PHP
-### 1. [spl_autoload_register() 和 __autoload()](https://my.oschina.net/alexskywinner/blog/92737)
+### 9. PHP
+##### 1. [spl_autoload_register() 和 __autoload()](https://my.oschina.net/alexskywinner/blog/92737)
 ###
 
 ---
