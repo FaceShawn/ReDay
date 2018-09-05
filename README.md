@@ -13,18 +13,18 @@
 - 软件设计与开发实践 3
 
 ### 1. 配置 WAMP 本地开发环境
-1. ##### 下载 [wampserver_X86_2.5.1455519048](http://www.wampserver.com/)
+##### 1. 下载 [wampserver_X86_2.5.1455519048](http://www.wampserver.com/)
 
 > `wampserver3.1.0_x64` 在windows7 64 下报错 `The setup files are corrupted Please obtain a new copy of the program`(安装文件已损坏，请获取程序的新副本)
 
 > 尝试 DirectX修复工具，也失败
 
-2. ##### 配置 wamp
+##### 2. 配置 wamp
 
-3. ##### 场景配置
+##### 3. 场景配置
 
-   - [快速入门ThinkPHP 5.0--基础篇 2-8 场景配置](https://www.imooc.com/video/14755)
-   - [PHP项目配置运行环境的正确姿势](https://github.com/lisijie/homepage/blob/master/posts/tech/PHP%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF.md)
+- [快速入门ThinkPHP 5.0--基础篇 2-8 场景配置](https://www.imooc.com/video/14755)
+- [PHP项目配置运行环境的正确姿势](https://github.com/lisijie/homepage/blob/master/posts/tech/PHP%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF.md)
 
 ---
 
@@ -90,16 +90,16 @@ DocumentRoot "c:/wamp/www/dwm/"
 ##### 4. 配置项目配置文件
 > 修改/config/config.php
 ---
-## Git
-### 1. Git 入门知识
-#### 1. [廖雪峰--史上最浅显易懂的Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
-#### 2. [Git入门指南使用资料汇总及文章推荐](https://github.com/xirong/my-git/blob/master/ixirong.com.md)
-#### 3. 分支管理策略
+### 4. Git 入门知识
+##### 1. [廖雪峰--史上最浅显易懂的Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+##### 2.  [Git入门指南使用资料汇总及文章推荐](https://github.com/xirong/my-git/blob/master/ixirong.com.md)
+##### 3. 分支管理策略
 - [x] [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
 - [ ] [介绍一个成功的 Git 分支模型](https://www.oschina.net/translate/a-successful-git-branching-model)
-#### 4. [使用git时出现：warning: LF will be replaced by CRLF](https://www.jianshu.com/p/0acf732eab68)
+##### 4. [使用git时出现：warning: LF will be replaced by CRLF](https://www.jianshu.com/p/0acf732eab68)
 
-### 2. 使用 Github 客户端进行版本控制
+### 5. 用 Github 客户端进行版本控制
+
 #### 1. [Github 的 SSH 配置](https://blog.csdn.net/chenliguan/article/details/51072809)
 #### 2. [Github 客户端使用方法](https://www.cnblogs.com/liuleilei/p/6533177.html)
     注：使用迅雷下载 https://desktop.github.com/ 会快点
@@ -113,7 +113,7 @@ DocumentRoot "c:/wamp/www/dwm/"
     commit to master
     push
 
-#### 5.2 [ 弃用 ] [通过 Git 本地回退版本并且更新远程仓库  reset](https://blog.csdn.net/neuldp/article/details/51883528)
+#### 5.2 ~~[通过 Git 本地回退版本并且更新远程仓库 reset](https://blog.csdn.net/neuldp/article/details/51883528)~~
   当不小心向远程仓库比如github做了一次错误的提交，想使本地和仓库回到某一个历史版本
 ##### 1. [ 可选 ] 找到想要回到的 commit id （版本号）
     1. 在 GitHub Desktop 中根据 History->右键->Copy SHA 复制
@@ -155,7 +155,7 @@ git push --force
 
 ---
 
-## 入坑 Atom 编辑器
+## 6. 入坑 Atom 编辑器
 ### [Atom 备份神器 —— Sync Settings 教程](https://www.cnblogs.com/hooray/p/5885211.html)
     Personal access tokens : b22a2d7d325e069b004f7ae262dd80c10129990a
     Gist Id : 4bed82817c679576258683eb7d70cb6a
@@ -167,7 +167,7 @@ git push --force
 
 ---
 
-## HTML & JQuery
+## 7. HTML & JQuery
 ### 1. html 引用公共的头部和尾部
 #### 1. [通过 jQuery 中的函数 load() ](https://blog.csdn.net/qq_35393869/article/details/79803190)
 
@@ -194,14 +194,14 @@ git push --force
 
 ---
 
-##  MVC 框架
+##  8. MVC 框架
 ### 1. [ORM 对象关系映射](https://www.pureweber.com/article/orm/)
 ### 2. [pdo 数据库访问抽象层使用](https://www.kancloud.cn/curder/mysql/354884)
 ### 3. [pdo 数据库访问抽象层详解](https://blog.csdn.net/nailwl/article/details/4733655)
 
 ---
 
-## PHP
+## 9. PHP
 ### 1. [spl_autoload_register() 和 __autoload()](https://my.oschina.net/alexskywinner/blog/92737)
 ###
 
