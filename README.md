@@ -100,30 +100,46 @@ DocumentRoot "c:/wamp/www/dwm/"
 
 ### 5. 用 Github 客户端进行版本控制
 
-#### 1. [Github 的 SSH 配置](https://blog.csdn.net/chenliguan/article/details/51072809)
-#### 2. [Github 客户端使用方法](https://www.cnblogs.com/liuleilei/p/6533177.html)
+##### 1. [Github 的 SSH 配置](https://blog.csdn.net/chenliguan/article/details/51072809)
+##### 2. [Github 客户端使用方法](https://www.cnblogs.com/liuleilei/p/6533177.html)
     注：使用迅雷下载 https://desktop.github.com/ 会快点
-#### 3. [GitHub for Windows 客户端的使用教程](https://blog.csdn.net/qq_25269835/article/details/70177314)
-#### 4. [Github 提交失败 fatal: unable to access](https://segmentfault.com/q/1010000004014275/a-1020000004044485)
-#### 5.1 [通过 GitHub Desktop 本地回退版本并且更新远程仓库](https://www.cnblogs.com/lqcdsns/p/5265665.html)
-##### 1. 在本地仓库 commit to master 未 push 到远程仓库
+##### 3. [GitHub for Windows 客户端的使用教程](https://blog.csdn.net/qq_25269835/article/details/70177314)
+##### 4. 提交失败
+
+- [Github 提交失败 fatal: unable to access](https://segmentfault.com/q/1010000004014275/a-1020000004044485)
+
+- 代理错误：[Git push时报错：Failed connect to github.com:443; No error和The remote end hung up unexpectedly](https://blog.csdn.net/qq_27093465/article/details/71210203)
+
+  ```
+  git config --global http.proxy "localhost:1080"
+  git config --global https.proxy "localhost:1080"
+  ```
+
+
+##### 5.1 [通过 GitHub Desktop 本地回退版本并且更新远程仓库](https://www.cnblogs.com/lqcdsns/p/5265665.html)
+1. 在本地仓库 commit to master 未 push 到远程仓库
+
     undo
-##### 2. 已 push 到远程仓库
+2. 已 push 到远程仓库
+
     History->右键->Reserve this commit
     commit to master
     push
 
-#### 5.2 ~~[通过 Git 本地回退版本并且更新远程仓库 reset](https://blog.csdn.net/neuldp/article/details/51883528)~~
+##### 5.2 ~~[通过 Git 本地回退版本并且更新远程仓库 reset](https://blog.csdn.net/neuldp/article/details/51883528)~~
   当不小心向远程仓库比如github做了一次错误的提交，想使本地和仓库回到某一个历史版本
-##### 1. [ 可选 ] 找到想要回到的 commit id （版本号）
+1. [ 可选 ] 找到想要回到的 commit id （版本号）
+
     1. 在 GitHub Desktop 中根据 History->右键->Copy SHA 复制
     2. GitHub 网站
     3. Git Bash 命令行
-##### 2. [ 可选 ] 进入本地仓库
+2. [ 可选 ] 进入本地仓库
+
     1. 在本地仓库文件夹右键-> Git Bash Here
     2. Git Bash 客户端通过 cd 命令
     3. 在 GitHub Desktop 中 `Ctrl + \` ` 在命令提示符中
-##### 3. 回退
+3. 回退
+
 ``` {.liner-numbers}
 # 回退所有内容到上一个版本，省略文件名表示回退所有
 git reset HEAD^ `文件名`
@@ -145,17 +161,19 @@ git reset --hard `版本号`
 #   --mixed 此为默认方式，回退到某个版本，只保留源码，回退 commit 和 index 信息
 #   --hard  彻底回退到某个版本，本地的源码也会变为上一个版本的内容
 ```
-##### 4. 提交到远程仓库
+4. 提交到远程仓库
+
 ```
 git push --force
 ```
-#### 6. [使用 git 和 github 管理自己的项目---真实开发环境的策略](https://segmentfault.com/a/1190000003739324)
+##### 6. [使用 git 和 github 管理自己的项目---真实开发环境的策略](https://segmentfault.com/a/1190000003739324)
 
 
 
 ---
 
 ### 6. 入坑 Atom 编辑器
+
 ##### 1. Sync 配置备份
 
 - [Atom 配置备份神器 Sync Settings 教程](https://www.cnblogs.com/hooray/p/5885211.html)
