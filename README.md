@@ -9,10 +9,11 @@
 
 - 项目地址: https://github.com/FaceShawn/ReDay
 - 部署地址：http://reday.webtree.cc
-- 时间：
+- 2018.06
 - 软件设计与开发实践 3
 
 ### 1. 配置 WAMP 本地开发环境
+
 ##### 1. 下载 [wampserver_X86_2.5.1455519048](http://www.wampserver.com/)
 
 > `wampserver3.1.0_x64` 在windows7 64 下报错 `The setup files are corrupted Please obtain a new copy of the program`(安装文件已损坏，请获取程序的新副本)
@@ -88,6 +89,7 @@ DocumentRoot "c:/wamp/www/dwm/"
 ```
 
 ##### 4. 配置项目配置文件
+
 > 修改/config/config.php
 ---
 
@@ -158,8 +160,8 @@ DocumentRoot "c:/wamp/www/dwm/"
 ---
 
 ### 9. PHP
+
 ##### 1. [spl_autoload_register() 和 __autoload()](https://my.oschina.net/alexskywinner/blog/92737)
-###
 
 ---
 
